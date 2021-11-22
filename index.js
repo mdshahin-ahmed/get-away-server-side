@@ -62,6 +62,11 @@ async function run() {
             const result = await bookCollection.find({email: myBook}).toArray();
             res.json(result);
         });
+        app.get('/myOrders', async(req, res) => {
+            const myBook = req.params.email;
+            const result = await bookCollection.find({}).toArray();
+            res.json(result);
+        });
 
         // DELETE api
         app.delete('/myOrders/:email/:id', async(req, res) => {
